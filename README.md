@@ -33,4 +33,4 @@ This EOSIO smart contract stores links to SavWeb pages
 ```
 
 # Licence
-The whole project is open source and free to use, see MIT licence. Feel free to suggest some improvements.
+The whole project is open source and free to use, see MIT licence. Feel free to suggest improvements.
