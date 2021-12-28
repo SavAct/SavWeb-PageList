@@ -5,6 +5,7 @@ This EOSIO smart contract stores links to SavWeb pages
 ```cpp
     /** 
      * Add an entry
+     * @param scope   Account name of a list. This account is authorized to remove entries in its list
      * @param editor  Authorized account name to edit and remove the entry
      * @param link    Link of a SavWeb page
      * @param title   Title for this entry
@@ -15,6 +16,7 @@ This EOSIO smart contract stores links to SavWeb pages
 ```cpp
     /** 
      * Edit an entry. Empty string parameters will not be changed
+     * @param scope   Account name of a list. This account is authorized to remove entries in its list
      * @param editor  Authorized account name to edit and remove the entry
      * @param key     Key of the entry
      * @param link    Link of a SavWeb page
@@ -26,6 +28,7 @@ This EOSIO smart contract stores links to SavWeb pages
 ```cpp
     /** 
      * Remove an entry
+     * @param scope   Account name of a list. This account is authorized to remove entries in its list
      * @param editor  Authorized account name to edit and remove the entry
      * @param key     Key of the entry
     */

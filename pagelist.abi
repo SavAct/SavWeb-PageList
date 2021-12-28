@@ -8,6 +8,10 @@
             "base": "",
             "fields": [
                 {
+                    "name": "scope",
+                    "type": "name"
+                },
+                {
                     "name": "editor",
                     "type": "name"
                 },
@@ -29,6 +33,10 @@
             "name": "edit",
             "base": "",
             "fields": [
+                {
+                    "name": "scope",
+                    "type": "name"
+                },
                 {
                     "name": "editor",
                     "type": "name"
@@ -55,6 +63,10 @@
             "name": "remove",
             "base": "",
             "fields": [
+                {
+                    "name": "scope",
+                    "type": "name"
+                },
                 {
                     "name": "editor",
                     "type": "name"

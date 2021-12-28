@@ -1,10 +1,10 @@
 #include <pagelist.hpp>
 
-ACTION pagelist::add(name editor, string& link, string& title, string& descr) {
+ACTION pagelist::add(name scope, name editor, string& link, string& title, string& descr) {
   require_auth(editor);
 
   // Init the _places table
-  places_table _places(get_self(), get_self().value);
+  places_table _places(get_self(), scope.value);
 
   check(title.length() <= 60, "Title is too long");
   check(title.length() <= 1000, "Description is too long");
@@ -19,11 +19,11 @@ ACTION pagelist::add(name editor, string& link, string& title, string& descr) {
   });
 }
 
-ACTION pagelist::edit(name editor, uint64_t key, string& link, string& title, string& descr) {
+ACTION pagelist::edit(name scope, name editor, uint64_t key, string& link, string& title, string& descr) {
   require_auth(editor);
 
   // Init the _places table
-  places_table _places(get_self(), get_self().value);
+  places_table _places(get_self(), scope.value);
 
   // Find the entry from _places table
   auto itr = _places.find(key);
@@ -48,14 +48,14 @@ ACTION pagelist::edit(name editor, uint64_t key, string& link, string& title, st
   });
 }
 
-ACTION pagelist::remove(name editor, uint64_t key) {
+ACTION pagelist::remove(name scope, name editor, uint64_t key) {
   require_auth(editor);
 
-  places_table _places(get_self(), get_self().value);
+  places_table _places(get_self(), scope.value);
 
   auto itr = _places.find(key);
   check(itr != _places.end(), "This key does not exists.");
-  check(itr->editor == editor, "You have no authority to remove this entry.");
+  check(editor == scope || itr->editor == editor, "You have no authority to remove this entry.");
 
   itr = _places.erase(itr);
 }
